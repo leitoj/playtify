@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head.ejs %>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #121212;
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main-container">
+        <div id="links">
+            <div>
+                <a href="/#menu" title="Go back to the main page">
+                    <img src="images/logo.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div id="playlist">
+            <div id="title">
+                <div>
+
+                </div>
+                <div>
+                    <h1>Last Songs</h1>
+                </div>
+            </div>
+            <div class="line-container" title="Soon you will can advance the song">
+                <div class="line"></div>
+            </div>
+            <ul id="style-2">
+                <% songs.forEach(element => { %>
+                <div class="songContainer">
+                    <div>
+                        <img src="images/songLogo.jpg" alt="logo song" width="43px" style="border-radius: 3px;"
+                            id="img-<%- element.id %>">
+                    </div>
+                    <li class="song" id="<%- element.id %>"><%= element.songName %></li>
+                </div>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+    <div id="reproductorPlayer">
+        <audio src="" onended="next()"></audio>
+
+        <div id="currentSong">
+            <i class="fas fa-headphones-alt"></i>
+            <h3 id="songTitle"></h3>
+        </div>
+        <div id="controllerSong">
+            <div class="controles">
+                <a onclick="prev()" class="button pass"><i class="fas fa-backward"></i></a>
+                <a id="play" aria-current="pause" class="button"><i class="far fa-play-circle"></i></a>
+                <a onclick="next()" class="button pass"><i class="fas fa-forward"></i></a>
+            </div>
+            <div id="elapsed-container">
+                <div id="elapsed"></div>
+            </div>
+        </div>
+        <div id="controllerVolumen">
+            <div>
+                <input type="range" name="volumen" id="volumen" min="0" max="1" step="0.01" value="1">
+            </div>
+            <div>
+                <i class="fas fa-volume-up" style="color: white; font-size: 18px; margin: 0 5px;" id="iconVolume"></i>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascripts/player/script.js"></script>
+</body>
+
+</html>

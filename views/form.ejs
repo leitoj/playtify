@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head.ejs %>
+    <link rel="stylesheet" href="stylesheets/styleForm.css">
+</head>
+
+<body>
+    <form class="form">
+        <h2><%= messages.title %></h2>
+        <p type="Name:"><input placeholder="Write your name here.." required name="name"></input></p>
+        <p type="Email:"><input placeholder="Let us know how to contact you back.." required name="email"></input></p>
+        <p type="<%= messages.titleInput %>"><input placeholder="<%= messages.placeholder %>" required name="<%= type %> "></input></p>
+        <button>Send Message</button>
+        <div>
+            <span class="fa fa-phone"></span>111 1111 111
+            <span class="fa fa-envelope-o"></span> barriosjl2003@gmail.com
+        </div>
+    </form>
+
+
+    <script>
+        const $form = document.querySelector(".form");
+
+        $form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            fetch("https://formsubmit.co/ajax/barriosjl2003@gmail.com", {
+                method: "POST",
+                body: new FormData(e.target)
+            })
+                .then(res => res.ok ? res.json(): Promise.reject(res))
+                .then(json => {
+                    if(json.success == "true"){
+                        alert("The message was sent successfully");
+                        window.location.href = "/#menu";
+                    }else{
+                        alert("Unexpected Error, try in some minutes")
+                    }
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        })
+    </script>
+</body>
+
+</html>
