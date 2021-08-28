@@ -225,3 +225,48 @@ input[type='range']::-webkit-slider-thumb {
   justify-content: center;
   align-items: center;
 }
+
+.fav-icon{
+  opacity: 0;
+  margin-left: 10px;
+}
+
+.fav-icon:hover{
+  cursor: pointer;
+}
+
+.songContainer:hover .fav-icon{
+  opacity: 1;
+}
+
+.set-fav{
+  margin-left: 10px;
+  transition: all 300ms;
+}
+.set-fav:hover{
+  cursor: pointer;
+  color: #9685fc;
+}
+
+#viewChange{
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  cursor: pointer;
+  transition: 200ms all;
+  color: rgb(211, 211, 211);
+  font-weight: 800;
+}
+
+#viewChange:hover{
+  color: white;
+}
+
+#any{
+  position: relative;
+  top: 30px;
+  left: 80px;
+  font-size: 35px;
+  color: white;
+  letter-spacing: 4px;
+}

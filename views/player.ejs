@@ -30,13 +30,19 @@
 
                 </div>
                 <div>
-                    <h1>Last Songs</h1>
+                    <h1 id="titleText">Last Songs</h1>
+                </div>
+                <div id="viewChange">
+                    <span id="click-fav">
+                        Songs that you like
+                    </span>
+                    <i class="fas fa-heart" id="iconView"></i>
                 </div>
             </div>
             <div class="line-container" title="Soon you will can advance the song">
                 <div class="line"></div>
             </div>
-            <ul id="style-2">
+            <ul id="root">
                 <% songs.forEach(element => { %>
                 <div class="songContainer">
                     <div>
@@ -44,6 +50,9 @@
                             id="img-<%- element.id %>">
                     </div>
                     <li class="song" id="<%- element.id %>"><%= element.songName %></li>
+                    <div>
+                        <i class="far fa-heart fav-icon" aria-name="<%= element.songName %>"></i>
+                    </div>
                 </div>
                 <% }) %>
             </ul>
